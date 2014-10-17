@@ -277,6 +277,7 @@ if ispc
     strLocalBaseShare5 = '\\nas21nwg01.ethz.ch\biol_uzh_pelkmans_s5\';
     strLocalBaseShare6 = '\\nas21nwg01.ethz.ch\biol_uzh_pelkmans_s6\';
     strLocalBaseShare7 = '\\nas21nwg01.ethz.ch\biol_uzh_pelkmans_s7\';
+    strLocalBaseShare8 = '\\nas21nwg01.ethz.ch\biol_uzh_pelkmans_s8\';
 elseif ismac
     if any(fileattrib('~/shares/'))
         try
@@ -291,6 +292,7 @@ elseif ismac
         strLocalBaseShare5 = sprintf('%s/shares/ethz-share5/',userDir);
         strLocalBaseShare6 = sprintf('%s/shares/ethz-share6/',userDir);
         strLocalBaseShare7 = sprintf('%s/shares/ethz-share7/',userDir);
+        strLocalBaseShare8 = sprintf('%s/shares/ethz-share8/',userDir);
     else
         strLocalBaseShare2 = '/Volumes/share-2-$/';
         strLocalBaseShare3 = '/Volumes/share-3-$/';
@@ -298,6 +300,7 @@ elseif ismac
         strLocalBaseShare5 = '/Volumes/biol_uzh_pelkmans_s5/';
         strLocalBaseShare6 = '/Volumes/biol_uzh_pelkmans_s6/';
         strLocalBaseShare7 = '/Volumes/biol_uzh_pelkmans_s7/';
+        strLocalBaseShare8 = '/Volumes/biol_uzh_pelkmans_s8/';
     end
 elseif isunix
     strLocalBaseShare2 = '/BIOL/imsb/fs2/bio3/bio3/';
@@ -306,6 +309,7 @@ elseif isunix
     strLocalBaseShare5 = '/BIOL/sonas/biol_uzh_pelkmans_s5/';
     strLocalBaseShare6 = '/BIOL/sonas/biol_uzh_pelkmans_s6/';
     strLocalBaseShare7 = '/BIOL/sonas/biol_uzh_pelkmans_s7/';
+    strLocalBaseShare8 = '/BIOL/sonas/biol_uzh_pelkmans_s8/';
 end
 
 % some windowd machines need the ".d.ethz.ch", and some don't
@@ -407,6 +411,12 @@ if intNasShare == 0
     strNewPath = strrep(strRootPath,strPathBase,strLocalBaseShare7);
     strNewPath = strrep(strNewPath,'/',filesep);
     strNewPath7 = strrep(strNewPath,'\',filesep);
+
+    % create tentative path for share 8
+    strNewPath = strrep(strRootPath,strPathBase,strLocalBaseShare8);
+    strNewPath = strrep(strNewPath,'/',filesep);
+    strNewPath8 = strrep(strNewPath,'\',filesep);
+
     
     % try SONAS shares at first, only then legacy share2/3, which are not
     % on brutus
@@ -416,6 +426,8 @@ if intNasShare == 0
         strNewPath = strNewPath6;
     elseif fileattrib(strNewPath7)
         strNewPath = strNewPath7;
+    elseif fileattrib(strNewPath8)
+        strNewPath = strNewPath8;
     elseif fileattrib(strNewPath5)
         strNewPath = strNewPath5;
     elseif  fileattrib(strNewPath2)
@@ -447,6 +459,9 @@ elseif intNasShare == 6
     % do the conversion for share-7
 elseif intNasShare == 7
     strNewPath = strrep(strRootPath,strPathBase,strLocalBaseShare7);
+elseif intNasShare == 8
+    % do the conversion for share-8
+    strNewPath = strrep(strRootPath,strPathBase,strLocalBaseShare8);
 end
 strNewPath = strrep(strNewPath,'/',filesep);
 strNewPath = strrep(strNewPath,'\',filesep);
