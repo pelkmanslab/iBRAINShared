@@ -7,8 +7,8 @@ function CPCluster(batchfile,clusterfile)
     fprintf('%s: \tbatchfile = %s\n',mfilename2,batchfile)
     fprintf('%s: \tclusterfile = %s\n',mfilename2,clusterfile)
 
-    batchfile = npc(batchfile);
-    clusterfile = npc(clusterfile);
+    batchfile = batchfile;
+    clusterfile = clusterfile;
     
     % Add custom project code support.
     brainy.libpath.checkAndAppendLibPath(os.path.dirname(batchfile));
@@ -28,7 +28,7 @@ function CPCluster(batchfile,clusterfile)
 %        disp(sprintf('Analyzing set %d\n', BatchSetBeingAnalyzed));
 %         toc;
         handles.Current.SetBeingAnalyzed = BatchSetBeingAnalyzed;
-        fprintf('%s: Analying image set %d (max threads = %d)\n',mfilename2,BatchSetBeingAnalyzed,maxNumCompThreads)
+        fprintf('%s: Analyzing image set %d (max threads = %d)\n',mfilename2,BatchSetBeingAnalyzed,maxNumCompThreads)
         for SlotNumber = 1:handles.Current.NumberOfModules,
             ModuleNumberAsString = sprintf('%02d', SlotNumber);
             ModuleName = char(handles.Settings.ModuleNames(SlotNumber));
