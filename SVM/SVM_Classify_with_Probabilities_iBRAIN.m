@@ -171,6 +171,6 @@ end
 
 %  otherwise, look for colum index containing object names ("Nuclei"), take that
 %  column
-objectIndex = find(~cellfun(@isempty,strfind(cellObjectCountFeatures, objectName)), 1 ,'first');
+objectIndex = find(cellfun(@(name) strcmp(name, objectName), cellObjectCountFeatures), 1, 'first');
 
 end
