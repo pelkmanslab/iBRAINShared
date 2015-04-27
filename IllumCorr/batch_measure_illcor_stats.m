@@ -1,5 +1,4 @@
 function batch_measure_illcor_stats(strPathName, strBatchFile)
-cmt.loadPackages();
 %BATCH_MEASURE_ILLCOR_STATS learn statistics used for the illumination correction
 % method.
 %
@@ -139,7 +138,6 @@ end
 %--------------------------------------------------------------------------
 % Save learned results into files.  
 function saveStats(strBatchDir, stats, channelNum, zNum, strBatchPrefix)
-cmt.loadPackages();
 % assemble filename so that the naming pattern is include.
     filename = fullfile(strBatchDir,sprintf(        'Measurements_%s%03d_zstack%03d.mat',... 
         strBatchPrefix, channelNum,zNum));
@@ -155,7 +153,6 @@ end
 
 %--------------------------------------------------------------------------
 function saveFigure(strPathName, strFigureDir, stats, channelNum, zNum, strBatchPrefix)
-cmt.loadPackages();
 % smart aggregate distributed statistics
     stat_values = struct(        'mean', aggregate_stats(stats,'mean'),        'var', aggregate_stats(stats,'var'),        'std', aggregate_stats(stats,'std'),        'count', aggregate_stats(stats,'count'),        'min', aggregate_stats(stats,'min'),        'max', aggregate_stats(stats,'max')    );
 
@@ -197,7 +194,6 @@ end
 %--------------------------------------------------------------------------
 % Look for file image .PNG or .TIFF.
 function strFoundFilename = lookForFile(strImageFilename)
-cmt.loadPackages();
 if fileattrib(strImageFilename)
         strFoundFilename = strImageFilename;
         return
@@ -217,13 +213,11 @@ end
 
 %--------------------------------------------------------------------------
 function log_msg(varargin)
-cmt.loadPackages();
 fprintf(varargin{:});
 end
 
 %--------------------------------------------------------------------------
 function matAggregate = aggregate_stats(stats, strFuncHandle)
-cmt.loadPackages();
 switch lower(strFuncHandle)
         case 'mean'
             cellfield = cellfun(@(x) x.mean, stats,'UniformOutput',false);
