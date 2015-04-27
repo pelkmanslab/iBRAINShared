@@ -1,5 +1,4 @@
 import matlab.unittest.TestRunner
-import matlab.unittest.TestSuite
 import matlab.unittest.plugins.TAPPlugin
 import matlab.unittest.plugins.ToFile
 %
@@ -11,7 +10,7 @@ import matlab.unittest.plugins.ToFile
 % Expects to be run from the Tests/ directory
 %
 
-suite   = TestSuite.fromClass(?ExampleTest);
+suite = createTestSuites();
 
 runner = TestRunner.withTextOutput;
 
