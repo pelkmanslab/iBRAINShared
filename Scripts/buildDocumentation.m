@@ -18,7 +18,7 @@ if (strcmp(deepestFolder,'Scripts')==0)
    error('Not in Scripts/ directory');
 end
 
-addpath('Scripts/lib/m2html')
+addpath('Scripts/thirdPartyTools/m2html/')
 
 % Gets the top-level folder name
 [upperPath, deepestFolderTopLevel, ignoreThisStr] = fileparts(upperPath);
