@@ -52,4 +52,4 @@ runner.addPlugin(plugin)
 result = runner.run(suites);
 
 % Display TAP file
-disp(fileread(tapFile))
+disp(fileread(outFileResolved))
