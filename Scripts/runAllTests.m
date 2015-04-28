@@ -8,7 +8,7 @@ import matlab.unittest.plugins.ToFile
 % See:
 % http://ch.mathworks.com/help/matlab/ref/matlab.unittest.plugins.tapplugin-class.html
 %
-% Expects to be run from the Tests/ directory
+% Expects to be run from the Scripts/ directory
 %
 
 % PARAMETERS START
@@ -21,10 +21,10 @@ topLevelMatlabFolder = '../';
 % PARAMETERS END
 
 
-% Check that we are in a Tests/ directory
+% Check that we are in right directory
 [upperPath, deepestFolder, ignoreThisStr] = fileparts(pwd());
-if (strcmp(deepestFolder,'Tests')==0)
-   error('Not in Tests/ directory');
+if (strcmp(deepestFolder,'Scripts')==0)
+   error('Not in Scripts/ directory');
 end
 
 
