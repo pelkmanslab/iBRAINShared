@@ -1,9 +1,9 @@
 %
 % Script to build matlab documentation with m2html
 %
-%
 % Expects to be run from the Scripts/ directory
 %
+% This particular script is GPL as it references m2html
 
 % PARAMETERS START
 
@@ -12,12 +12,13 @@ docDirRelToTopLevel = 'docHTML/';
 
 % PARAMETERS END
 
-
 % Check that we are in right directory
 [upperPath, deepestFolder, ignoreThisStr] = fileparts(pwd());
 if (strcmp(deepestFolder,'Scripts')==0)
    error('Not in Scripts/ directory');
 end
+
+addpath('Scripts/lib/m2html')
 
 % Gets the top-level folder name
 [upperPath, deepestFolderTopLevel, ignoreThisStr] = fileparts(upperPath);
