@@ -6,6 +6,6 @@
 #
 #
 filepath='./Scripts/buildDocumentation.m'
-matlab -nodesktop -nosplash -nodisplay -r "cd('..'); m2html('mfiles','iBRAINShared','recursive','on','htmlDir','docMatlab') ; quit;" 
+matlab -nodesktop -nosplash -nodisplay -r "run $filepath ; quit;" 
 
 
