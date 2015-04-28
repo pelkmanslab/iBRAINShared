@@ -7,8 +7,12 @@
 
 % PARAMETERS START
 
+disp(pwd());
+
 % TAP file to output
 docDirRelToTopLevel = 'docHTML/';
+
+disp(pwd());
 
 % PARAMETERS END
 
