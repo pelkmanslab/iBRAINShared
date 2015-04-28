@@ -8,7 +8,7 @@
 % PARAMETERS START
 
 % TAP file to output
-docDirRelToTopLevel = 'doc/';
+docDirRelToTopLevel = 'docHTML/';
 
 % PARAMETERS END
 
