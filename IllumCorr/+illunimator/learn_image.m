@@ -30,6 +30,7 @@ function boolReadSuccesfull = learn_image(stat, filename)
     % Log10 transform 
     image = log10(image);
     image(isinf(image)) = 0;
+    image(isnan(image)) = 0;
 
     % Smooth [BS-14-06-2012] Disabled smoothing as it creates too many
     % artifacts at the border of images. Discuss with me if you disagree...
