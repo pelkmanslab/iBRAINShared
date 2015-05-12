@@ -14,4 +14,4 @@ CellProfilerPelkmans is part of each [iBRAIN_UZH release](https://github.com/pel
 
 ## Documentation
 
-* [Automatically generated docs](http://jenkins.pelkmanslab.org/job/iBRAINShared_Master/iBRAINShared_API_Documentation/) -  updated daily, primary reference material.
+* [Automatically generated API documentation](http://jenkins.pelkmanslab.org/job/iBRAINShared_Master/iBRAINShared_API_Documentation/) -  updated daily, primary reference material.
