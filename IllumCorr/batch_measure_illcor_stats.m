@@ -1,4 +1,4 @@
-function batch_measure_illcor_stats(strPathName, strBatchFile)
+function batch_measure_illcor_stats(strPathName, strBatchFile, strBatchDir, strFigureDir)
 %BATCH_MEASURE_ILLCOR_STATS learn statistics used for the illumination correction
 % method.
 %
@@ -33,12 +33,14 @@ function batch_measure_illcor_stats(strPathName, strBatchFile)
     % If output directory is not passed, and data is iBRAIN format, store
     % output in BATCH directory, otherwise store output in intput
     % directory.    
-    if strcmp(getlastdir(strPathName),'TIFF')
-        strBatchDir = fullfile(getbasedir(strPathName),'BATCH');
-        strFigureDir = fullfile(getbasedir(strPathName),'POSTANALYSIS');
-    else
-        strBatchDir = strPathName;
-        strFigureDir = strPathName;
+    if nargin==2
+        if strcmp(getlastdir(strPathName),'TIFF')
+            strBatchDir = fullfile(getbasedir(strPathName),'BATCH');
+            strFigureDir = fullfile(getbasedir(strPathName),'POSTANALYSIS');
+        else
+            strBatchDir = strPathName;
+            strFigureDir = strPathName;
+        end
     end
 
     % Maximum number of images per channel that will be processed.

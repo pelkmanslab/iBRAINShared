@@ -1,4 +1,4 @@
-function prepare_batch_measure_illcor_stats(strPathName)
+function prepare_batch_measure_illcor_stats(strPathName, strBatchDir)
 %prepare_batch_measure_illcor_stats prepare batch files to learn statistics
 %   used for the illumination correction method.
 %
@@ -31,13 +31,17 @@ function prepare_batch_measure_illcor_stats(strPathName)
         strPathName = '/share/nas/ethz-share4/Data/Users/Vicky/Stat3TIRF/RFPStat3MarkerTests/120222_RFPStat3_cyclinA/TIFF';
     end
     
-    % If this is iBRAIN data, store output in BATCH directory, otherwise
-    % store output in intput directory.    
-    if strcmp(getlastdir(strPathName),'TIFF')
-        strBatchDir = fullfile(getbasedir(strPathName),'BATCH');
-    else
-        strBatchDir = strPathName;
+    if nargin==1
+        % If this is iBRAIN data, store output in BATCH directory, otherwise
+        % store output in intput directory.    
+        if strcmp(getlastdir(strPathName),'TIFF')
+            strBatchDir = fullfile(getbasedir(strPathName),'BATCH');
+        else
+            strBatchDir = strPathName;
+        end
+    % otherwise strBatchDir is specified by the argument.
     end
+
     
     % Log input and output directories.
     log_msg('%s: learning stats of images for:\n         input = ''%s''\n        output = ''%s''\n',mfilename,strPathName,strBatchDir)
