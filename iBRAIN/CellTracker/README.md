@@ -1,9 +1,10 @@
 # CellTracker (iBRAIN module)
 
----|---
-Module name: | CellTracker |
-Contributors: |  Nicolas Battich <nicolas.battich@uzh.ch>, Mathieu Frechin <mathieu.frechin@uzh.ch>|
-Entry point: | [iBrainTrackerV1.m](https://github.com/pelkmanslab/iBRAINShared/blob/tracker/iBRAIN/CellTracker/iBrainTrackerV1.m) |
+|||
+|---|---|
+| Module name: | CellTracker |
+| Contributors: |  Nicolas Battich <nicolas.battich@uzh.ch>, Mathieu Frechin <mathieu.frechin@uzh.ch>|
+| Entry point: | [iBrainTrackerV1.m](https://github.com/pelkmanslab/iBRAINShared/blob/tracker/iBRAIN/CellTracker/iBrainTrackerV1.m) |
 
 See the entry-point function for main documentation and the algorithm explanation.
 
