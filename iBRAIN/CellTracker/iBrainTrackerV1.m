@@ -77,9 +77,9 @@ function handles = iBrainTrackerV1(strRootPath,strSettingsFile)
 %
 % Nico Battich 22-08-2011
 %
-% Mathieu Fréchin 15-12-2011
+% Mathieu Frï¿½chin 15-12-2011
 % Tracking over multiple sites implemented.
-% Mathieu Fréchin 03-04-2012
+% Mathieu Frï¿½chin 03-04-2012
 % Possibility to do a perwell tracking,Reorganization of the main code, optimization, simplification and new
 % modules. In particular, I have added a save step after global labelling,
 % in order to optimize the memory usage later, plus, the loading of
@@ -163,66 +163,6 @@ end
 
 %[MF]: so now this function is independant and load the handles directly from the share 
 handles = createfamilytree(handles);
-    
-
-%% 3.2 Calculate Derived Parameters 
-%[NB] here we gene rate the trajectories matrix and compute different tracking parameters.
-
-if strncmpi(handles.TrackingSettings.TrackingDerivedParam,'y',1);
-    fprintf('%s: Tracking Stage 3.3: Calculate Tracking Statistics. Trajectory matrices.\n',mfilename);
-    [handles]=linmatIBT2(handles);
-    fprintf('%s: Tracking Stage 3.3: Calculate Tracking Statistics. Trajectory matrices completed.\n',mfilename);
-    
-    
-    fprintf('%s: Tracking Stage 3.3: Calculate Tracking Statistics. Derived Parameters.\n',mfilename);
-    % note this function is a bit slow  perhaps it could be improved
-    [handles] = CalParamIBT(handles);
-    fprintf('%s: Tracking Stage 3.3: Calculate Tracking Statistics. Derived Parameters.\n',mfilename);
-    
-
-    
-    % save the measurements
-    handles2 = struct();
-    TrackingMeasurementPrefix = strcat('TrackingDerivedParam_',strSettingBaseName);
-    handles2.Measurements.(strObjectToTrack).(TrackingMeasurementPrefix) = handles.Measurements.(strObjectToTrack).TrackingStats;
-    handles2.Measurements.(strObjectToTrack).(strcat(TrackingMeasurementPrefix,'Features')) = handles.Measurements.(strObjectToTrack).TrackingStatsFeatures;
-    
-    % [BS] Store handles as measurement file in strBatchPath
-    strMeasurementFileName = sprintf('Measurements_%s_%s.mat',strObjectToTrack,TrackingMeasurementPrefix);
-    save(fullfile(handles.strBatchPath, strMeasurementFileName), 'handles2')
-    
-    % save the measurements
-    handles2 = struct();
-    TrackingMeasurementPrefix = strcat('Lineage_',strSettingBaseName);
-    handles2.Measurements.(strObjectToTrack).(TrackingMeasurementPrefix) = handles.Measurements.(strObjectToTrack).cellLineage;
-    %handles.Measurements.(strObjectToTrack).(strcat(TrackingMeasurementPrefix,'Features')) = PreviousHandles.Measurements.(strObjectToTrack).TrackingStatsFeatures;
-    
-    % [BS] Store handles as measurement file in strBatchPath
-    strMeasurementFileName = sprintf('Measurements_%s_%s.mat',strObjectToTrack,TrackingMeasurementPrefix);
-    save(fullfile(handles.strBatchPath, strMeasurementFileName), 'handles2')
-    
-    % save the measurements
-    handles2 = struct();
-    TrackingMeasurementPrefix = strcat('LineageMetaData_',strSettingBaseName);
-    handles2.Measurements.(strObjectToTrack).(TrackingMeasurementPrefix) = handles.Measurements.(strObjectToTrack).cellLineageMetaData;
-    %handles.Measurements.(strObjectToTrack).(strcat(TrackingMeasurementPrefix,'Features')) = PreviousHandles.Measurements.(strObjectToTrack).TrackingStatsFeatures;
-    
-    % [BS] Store handles as measurement file in strBatchPath
-    strMeasurementFileName = sprintf('Measurements_%s_%s.mat',strObjectToTrack,TrackingMeasurementPrefix);
-    save(fullfile(handles.strBatchPath, strMeasurementFileName), 'handles2')
-    
-     % save the measurements
-    handles2 = struct();
-    TrackingMeasurementPrefix = strcat('TrackingMSD_',strSettingBaseName);
-    handles2.Measurements.(strObjectToTrack).(TrackingMeasurementPrefix) = handles.Measurements.(strObjectToTrack).TrackingMSD;
-    %handles.Measurements.(strObjectToTrack).(strcat(TrackingMeasurementPrefix,'Features')) = PreviousHandles.Measurements.(strObjectToTrack).TrackingStatsFeatures;
-    
-    % [BS] Store handles as measurement file in strBatchPath
-    strMeasurementFileName = sprintf('Measurements_%s_%s.mat',strObjectToTrack,TrackingMeasurementPrefix);
-    save(fullfile(handles.strBatchPath, strMeasurementFileName), 'handles2')   
-    
-end
-
 
 
 %% 3.x Movie creation
@@ -292,3 +232,64 @@ fprintf('%s: Tracking Stage 5: Output files saved to %s.\n',mfilename,handles.st
 
 
 fprintf('%s: Tracking completed for data in %s\n',mfilename,strRootPath)
+
+
+%% 4.x Calculate Derived Parameters 
+%[NB] here we gene rate the trajectories matrix and compute different tracking parameters.
+%[YY] moved to the very end so that this section does not manipulate the
+%     handles.
+
+if strncmpi(handles.TrackingSettings.TrackingDerivedParam,'y',1);
+    fprintf('%s: Tracking Stage 3.3: Calculate Tracking Statistics. Trajectory matrices.\n',mfilename);
+    [handles]=linmatIBT2(handles);
+    fprintf('%s: Tracking Stage 3.3: Calculate Tracking Statistics. Trajectory matrices completed.\n',mfilename);
+    
+    
+    fprintf('%s: Tracking Stage 3.3: Calculate Tracking Statistics. Derived Parameters.\n',mfilename);
+    % note this function is a bit slow  perhaps it could be improved
+    [handles] = CalParamIBT(handles);
+    fprintf('%s: Tracking Stage 3.3: Calculate Tracking Statistics. Derived Parameters.\n',mfilename);
+    
+
+    
+    % save the measurements
+    handles2 = struct();
+    TrackingMeasurementPrefix = strcat('TrackingDerivedParam_',strSettingBaseName);
+    handles2.Measurements.(strObjectToTrack).(TrackingMeasurementPrefix) = handles.Measurements.(strObjectToTrack).TrackingStats;
+    handles2.Measurements.(strObjectToTrack).(strcat(TrackingMeasurementPrefix,'Features')) = handles.Measurements.(strObjectToTrack).TrackingStatsFeatures;
+    
+    % [BS] Store handles as measurement file in strBatchPath
+    strMeasurementFileName = sprintf('Measurements_%s_%s.mat',strObjectToTrack,TrackingMeasurementPrefix);
+    save(fullfile(handles.strBatchPath, strMeasurementFileName), 'handles2')
+    
+    % save the measurements
+    handles2 = struct();
+    TrackingMeasurementPrefix = strcat('Lineage_',strSettingBaseName);
+    handles2.Measurements.(strObjectToTrack).(TrackingMeasurementPrefix) = handles.Measurements.(strObjectToTrack).cellLineage;
+    %handles.Measurements.(strObjectToTrack).(strcat(TrackingMeasurementPrefix,'Features')) = PreviousHandles.Measurements.(strObjectToTrack).TrackingStatsFeatures;
+    
+    % [BS] Store handles as measurement file in strBatchPath
+    strMeasurementFileName = sprintf('Measurements_%s_%s.mat',strObjectToTrack,TrackingMeasurementPrefix);
+    save(fullfile(handles.strBatchPath, strMeasurementFileName), 'handles2')
+    
+    % save the measurements
+    handles2 = struct();
+    TrackingMeasurementPrefix = strcat('LineageMetaData_',strSettingBaseName);
+    handles2.Measurements.(strObjectToTrack).(TrackingMeasurementPrefix) = handles.Measurements.(strObjectToTrack).cellLineageMetaData;
+    %handles.Measurements.(strObjectToTrack).(strcat(TrackingMeasurementPrefix,'Features')) = PreviousHandles.Measurements.(strObjectToTrack).TrackingStatsFeatures;
+    
+    % [BS] Store handles as measurement file in strBatchPath
+    strMeasurementFileName = sprintf('Measurements_%s_%s.mat',strObjectToTrack,TrackingMeasurementPrefix);
+    save(fullfile(handles.strBatchPath, strMeasurementFileName), 'handles2')
+    
+     % save the measurements
+    handles2 = struct();
+    TrackingMeasurementPrefix = strcat('TrackingMSD_',strSettingBaseName);
+    handles2.Measurements.(strObjectToTrack).(TrackingMeasurementPrefix) = handles.Measurements.(strObjectToTrack).TrackingMSD;
+    %handles.Measurements.(strObjectToTrack).(strcat(TrackingMeasurementPrefix,'Features')) = PreviousHandles.Measurements.(strObjectToTrack).TrackingStatsFeatures;
+    
+    % [BS] Store handles as measurement file in strBatchPath
+    strMeasurementFileName = sprintf('Measurements_%s_%s.mat',strObjectToTrack,TrackingMeasurementPrefix);
+    save(fullfile(handles.strBatchPath, strMeasurementFileName), 'handles2')   
+    
+end

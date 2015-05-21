@@ -1,2 +1,4 @@
 *.tap
 /docHTML
+*.m~
+*.asv
