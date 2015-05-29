@@ -37,3 +37,4 @@ _currently appears empty (Apr 13th)_
 **Improve interactivity and reduce human waiting time**
 * **Give CCP jobs higher priority than the bulk of the jobs** managed by iBrain (e.g. put on top of queue or better: separate high-priority queue for SVMs). In practice this **would save hours/days of completely unnecessary human waiting time** (if iBrain is busy with other projects, e.g.: CellProfiler jobs)
 * **Parallelize classification**; e.g: request 8-core machines and replace the main for-loop in SVM_Classify_with_Probabilities_iBRAIN by a parfor-loop (after matlabpool open): This would reduce processing / human waiting time from 80min to 10min! (only 5-10min of trivial coding would be required)
+* Report/keep logs (.results) if there is an error during classification on iBrain
