@@ -1,7 +1,9 @@
 function SVM_Classify_with_Probabilities_iBRAIN(input_file_name,strPath)
 % Performs the SVM classification for objects
 %
-% This file requires 
+% This file uses the output created by classify_gui (which contains
+% manually trained classifier and information about the normalization of
+% data). It applies this classfication to all images of a plate
 
 % default input options (works nice for testing)
 if nargin==0
