@@ -4,11 +4,19 @@
 |---|---|
 | Module name: | do_svm_classification |
 | Contributors: |  Thomas Stoeger <thomas.stoeger@imls.uzh.ch>|
-| Entry point: | [iBrainTrackerV1.m](https://github.com/pelkmanslab/iBRAINShared/blob/tracker/iBRAIN/CellTracker/iBrainTrackerV1.m) |
+| Entry point: | [SVM_Classify_with_Probabilities_iBrain.m](https://github.com/pelkmanslab/iBRAINShared/blob/master/iBRAIN/SVM/SVM_Classify_with_Probabilities_iBRAIN.m) |
+|Additional major working function: | [PlotBinaryClassificationResults.m](https://github.com/pelkmanslab/iBRAINShared/blob/master/iBRAIN/SVM/PlotBinaryClassificationResults.m)|
 
 See the entry-point function for main documentation and the algorithm explanation.
 
-## Input
+## iBRAIN_BRUTUS reference
+[/iBRAIN/core/modulesdo_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh)
+
+
+## Summary
+1. Using
+
+
 
 
 ```
@@ -39,8 +47,7 @@ BATCH/Measurements_Nuclei_TrackObjects*.mat
 
 
 
-**iBRAIN_BRUTUS reference**
-[do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh)
+
 
 
 **iBRAIN_UZH module**
