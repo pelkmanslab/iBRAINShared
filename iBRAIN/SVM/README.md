@@ -30,7 +30,7 @@ After the classifications have been saved for all cells of a plate , [PlotBinary
 
 ## File dependencies
 - CellProfiler measurements, including Image_Object_Count (reformatted by Datafusion)
-- Classification file created by classify_gui (standard output), saved as /SVM_.*.mat (where .* is an arbitrary phrase, that does not start with a number)
+- Classification file created by classify_gui (standard output), saved as SVM_X.mat (where X is an arbitrary phrase, that does not start with a number)
 - BATCH/Measurements_Mean_Std.mat (created by create_plate_normalization)
 - /BASICDATA.mat (for classify_gui](https://github.com/pelkmanslab/CellClassificationPelkmans/blob/master/ClientSide/ClassifyGui/classify_gui.m)
 
