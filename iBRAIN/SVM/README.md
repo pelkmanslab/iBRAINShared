@@ -19,7 +19,7 @@ iBrains [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/
 </p>
 
 <p>
-After the classifications have been saved for all cells of a plate (following the convention /BATCH/Measurements_SVM.*.mat), [PlotBinaryClassificationResults.m](https://github.com/pelkmanslab/iBRAINShared/blob/master/iBRAIN/SVM/PlotBinaryClassificationResults.m) will save summary statistics on a per-well basis into the /POSTANALYSIS folder. This includes pdfs reflecting the layout of the plate and excel-compatible csv tables 
+After the classifications have been saved for all cells of a plate (following the convention /BATCH/Measurements_SVM.*.mat), [PlotBinaryClassificationResults.m](https://github.com/pelkmanslab/iBRAINShared/blob/master/iBRAIN/SVM/PlotBinaryClassificationResults.m) will save summary statistics on a per-well basis into the POSTANALYSIS folder. This includes pdfs reflecting the layout of the plate and excel-compatible csv tables 
 </p>
 
 
