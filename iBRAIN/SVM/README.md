@@ -32,6 +32,31 @@ After the classifications have been saved for all cells of a plate (following th
 |POSTANALYSIS/Measurements_SVM_.*_overview.pdf | Overview image of per-well classifcation. Used as FALLBACK-flag by [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) |
 |POSTANALYSIS/Measurements_SVM_.*_overview.csv | Overview table of per-well classifcation. Used as FALLBACK-FALLBACK-flag by [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) |
 
+## File dependencies
+- CellProfiler measurements, including Image_Object_Count (reformatted by Datafusion)
+- Classification file created by classify_gui (standard output), saved as /SVM_.*.mat (where .* is an arbitrary phrase, that does not start with a number)
+- BATCH/Measurements_Mean_Std.mat (created by create_plate_normalization)
+- /BASICDATA.mat (for classify_gui](https://github.com/pelkmanslab/CellClassificationPelkmans/blob/master/ClientSide/ClassifyGui/classify_gui.m)
+
+## Inputs
+|||
+|---|---|
+|do_svm_classification.sh | Classification file created by [classify_gui](https://github.com/pelkmanslab/CellClassificationPelkmans/blob/master/ClientSide/ClassifyGui/classify_gui.m), saved as /SVM_.*.mat |
+|SVM_Classify_with_Probabilities_iBRAIN.m | 
+- Classification file created by [classify_gui](https://github.com/pelkmanslab/CellClassificationPelkmans/blob/master/ClientSide/ClassifyGui/classify_gui.m), saved under arbitrary name, that does not start with SVM_number
+- BATCH/Measurements_Mean_Std.mat
+- BATCH/Measurements_Image_ObjectCount.mat containg counts for one group of objects, that has been called "Nuclei" in the original CellProfiler pipeline | 
+|PlotBinaryClassificationResults.m | - Output of SVM_Classify_with_Probabilities_iBRAIN (/BATCH/Measurements_Image_ObjectCount.mat) 
+-  Classification into two (and not more) classes in classify_gui
+-  One class has been named not_X or non_X in classify_gui, where X is the name of the other class
+
+
+
+
+
+
+
+
 
 
 
