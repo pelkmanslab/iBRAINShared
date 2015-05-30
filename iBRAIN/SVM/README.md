@@ -27,7 +27,7 @@ After the classifications have been saved for all cells of a plate (following th
 ## Completion flags
 |||
 |---|---|
-|BATCH/SVMClassification_*.results | This flag reflects the command line output and is only present, if classification did not have an error. Interestingly, it is not used used by as a completion flag by [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) |
+|BATCH/SVMClassification_*.results | This flag reflects the command line output and is only present, if classification did not have an error. Importantly, it is not used as a completion flag by [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) |
 |BATCH/Measurements_SVM_.*.mat | Output of classification. Used as flag by [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) |
 |POSTANALYSIS/Measurements_SVM_.*_overview.pdf | Overview image of per-well classifcation. Used as FALLBACK-flag by [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) |
 |POSTANALYSIS/Measurements_SVM_.*_overview.csv | Overview table of per-well classifcation. Used as FALLBACK-FALLBACK-flag by [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) |
