@@ -1,4 +1,12 @@
 function PlotBinaryClassificationResults(strBatchPath,strSvmFile)
+% Summary statistics of SVM classification
+%
+% Creates pdfs and csv-files (tables) in POSTANALYIS folder, once SVM
+% classifications have been applied (by server/iBrain side) - if the SVMs
+% contain two differente classes - one being called no[tn]_whatever and the
+% other being called whatever (where "whatever" is an aribitrary name of
+% the classification) - if the model file (output of classify_gui) has 
+% been saved under the name SVM_whatever.mat
 
 handles = struct();
 

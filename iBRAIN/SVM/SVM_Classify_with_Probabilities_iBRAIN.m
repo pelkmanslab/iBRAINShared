@@ -1,5 +1,7 @@
 function SVM_Classify_with_Probabilities_iBRAIN(input_file_name,strPath)
 % Performs the SVM classification for objects
+%
+% This file requires 
 
 % default input options (works nice for testing)
 if nargin==0
@@ -89,7 +91,11 @@ handles.Measurements.SVM.(featurename)=savedata.classNames;
 handles.Measurements.SVMp.(featurename)=['Probability_of_',savedata.classNames{1}];
 images=length(PlateHandles.Measurements.Image.ObjectCount);
 
-for image=1:images
+
+% TS: this loop could easily be parallelized on multiple processors with 
+% parfor to speed up classification and thus massively reduce human waiting time
+% note: currently (1505330) the function does not do "matlabpool open"
+for image=1:images     
     disp(sprintf('  PROCESSING IMAGE %d OF %d',image,images))
     objectIndex = grabColumnIndex(PlateHandles.Measurements.Image, objectName);
     objects = PlateHandles.Measurements.Image.ObjectCount{image}(objectIndex);
