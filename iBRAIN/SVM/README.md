@@ -14,44 +14,23 @@
 ## Summary
 <p>
 A user will use visual feedback to train a SVM classifier with [classify_gui](https://github.com/pelkmanslab/CellClassificationPelkmans/blob/master/ClientSide/ClassifyGui/classify_gui.m) </p>
+
 <p>
 iBrains [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) will apply this classifier to all cells of a plate, if the classifier (and addtional metainformation) have been saved as SVM_.*mat
 </p>
 
 <p>
-After the classifications have been saved for all cells of a plate (following the convention /BATCH/Measurements_SVM.*.mat), [PlotBinaryClassificationResults.m](https://github.com/pelkmanslab/iBRAINShared/blob/master/iBRAIN/SVM/PlotBinaryClassificationResults.m) will save summary statistics on a per-well basis into the POSTANALYSIS folder. This includes pdfs reflecting the layout of the plate and excel-compatible csv tables 
+After the classifications have been saved for all cells of a plate (following the convention /BATCH/Measurements_SVM.*.mat), [PlotBinaryClassificationResults.m](https://github.com/pelkmanslab/iBRAINShared/blob/master/iBRAIN/SVM/PlotBinaryClassificationResults.m) will save summary statistics on a per-well basis into the POSTANALYSIS folder. This includes pdfs reflecting the layout of the plate and excel-compatible csv tables.
 </p>
 
 
-
-, which depends on BASICDATA, CellProfiler Measurements (reformatted by datafusion) and Measurements_mean_std.mat,   
-
-
-
-
-```
-SetTracker_*.txt
-```
-
-e.g.
-
-```
-structTrackingSettings.TrackingMethod = 'Distance';
-structTrackingSettings.ObjectName = 'Nuclei';
-structTrackingSettings.PixelRadius = 15;
-structTrackingSettings.OverlapFactorC = 0.25;
-structTrackingSettings.OverlapFactorP = 0.25;
-structTrackingSettings.WavelengthID = '_w1';
-structTrackingSettings.CreateFrames = 'Yes';
-structTrackingSettings.TailTime = 1;
-```
-
-## Output
-
-
-```
-BATCH/Measurements_Nuclei_TrackObjects*.mat
-```
+## Completion flags
+|||
+|---|---|
+|BATCH/SVMClassification_*.results | This flag reflects the command line output and is only present, if classification did not have an error. Interestingly, it is not used used by as a completion flag by [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) |
+|BATCH/Measurements_SVM_.*.mat | Output of classification. Used as flag by [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) |
+|POSTANALYSIS/Measurements_SVM_.*_overview.pdf | Overview image of per-well classifcation. Used as FALLBACK-flag by [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) |
+|POSTANALYSIS/Measurements_SVM_.*_overview.csv | Overview table of per-well classifcation. Used as FALLBACK-FALLBACK-flag by [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) |
 
 
 
