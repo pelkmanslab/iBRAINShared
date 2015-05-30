@@ -1,5 +1,47 @@
+# SVM classification (iBRAIN module)
+
+|||
+|---|---|
+| Module name: | do_svm_classification |
+| Contributors: |  Thomas Stoeger <thomas.stoeger@imls.uzh.ch>|
+| Entry point: | [iBrainTrackerV1.m](https://github.com/pelkmanslab/iBRAINShared/blob/tracker/iBRAIN/CellTracker/iBrainTrackerV1.m) |
+
+See the entry-point function for main documentation and the algorithm explanation.
+
+## Input
+
+
+```
+SetTracker_*.txt
+```
+
+e.g.
+
+```
+structTrackingSettings.TrackingMethod = 'Distance';
+structTrackingSettings.ObjectName = 'Nuclei';
+structTrackingSettings.PixelRadius = 15;
+structTrackingSettings.OverlapFactorC = 0.25;
+structTrackingSettings.OverlapFactorP = 0.25;
+structTrackingSettings.WavelengthID = '_w1';
+structTrackingSettings.CreateFrames = 'Yes';
+structTrackingSettings.TailTime = 1;
+```
+
+## Output
+
+
+```
+BATCH/Measurements_Nuclei_TrackObjects*.mat
+```
+
+
+
+
+
 **iBRAIN_BRUTUS reference**
-/iBRAIN/core/modules/do_svm_classification.sh
+[do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh)
+
 
 **iBRAIN_UZH module**
 iBRAINDemoProject/run_svm.br
