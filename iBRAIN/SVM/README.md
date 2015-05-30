@@ -12,8 +12,10 @@
 [/iBRAIN/core/modules/do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh)
 
 ## Summary
-1. A user will use visual feedback to train a SVM classifier with [classify_gui](https://github.com/pelkmanslab/CellClassificationPelkmans/blob/master/ClientSide/ClassifyGui/classify_gui.m) 2. iBrains [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) will apply this classifier to all cells of a plate, if the classifier (and addtional metainformation) have been saved as SVM_.*mat
-3. After the classifications have been saved for all cells of a plate (following the convention /BATCH/Measurements_SVM.*.mat), [PlotBinaryClassificationResults.m](https://github.com/pelkmanslab/iBRAINShared/blob/master/iBRAIN/SVM/PlotBinaryClassificationResults.m) will save summary statistics on a per-well basis into the /POSTANALYSIS folder. This includes pdfs reflecting the layout of the plate and excel-compatible csv tables 
+A user will use visual feedback to train a SVM classifier with [classify_gui](https://github.com/pelkmanslab/CellClassificationPelkmans/blob/master/ClientSide/ClassifyGui/classify_gui.m) 
+iBrains [do_svm_classification.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/do_svm_classification.sh) will apply this classifier to all cells of a plate, if the classifier (and addtional metainformation) have been saved as SVM_.*mat
+
+After the classifications have been saved for all cells of a plate (following the convention /BATCH/Measurements_SVM.*.mat), [PlotBinaryClassificationResults.m](https://github.com/pelkmanslab/iBRAINShared/blob/master/iBRAIN/SVM/PlotBinaryClassificationResults.m) will save summary statistics on a per-well basis into the /POSTANALYSIS folder. This includes pdfs reflecting the layout of the plate and excel-compatible csv tables 
 
 
 
