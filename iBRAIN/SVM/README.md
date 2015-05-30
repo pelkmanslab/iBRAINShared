@@ -44,7 +44,7 @@ After the classifications have been saved for all cells of a plate (following th
 - Classification file created by [classify_gui](https://github.com/pelkmanslab/CellClassificationPelkmans/blob/master/ClientSide/ClassifyGui/classify_gui.m), saved as /SVM_.*.mat 
 
 ###SVM_Classify_with_Probabilities_iBRAIN.m 
-- Classification file created by [classify_gui](https://github.com/pelkmanslab/CellClassificationPelkmans/blob/master/ClientSide/ClassifyGui/classify_gui.m), saved under arbitrary name, that does not start with SVM_number
+- Classification file created by [classify_gui](https://github.com/pelkmanslab/CellClassificationPelkmans/blob/master/ClientSide/ClassifyGui/classify_gui.m), saved under arbitrary name, that does not start with SVM_ followed by a number
 - BATCH/Measurements_Mean_Std.mat
 - BATCH/Measurements_Image_ObjectCount.mat containg counts for one group of objects, that has been called "Nuclei" in the original CellProfiler pipeline 
 
