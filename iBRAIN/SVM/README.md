@@ -62,7 +62,7 @@ After the classifications have been saved for all cells of a plate , [PlotBinary
 
 ## Missing Functionality from iBRAIN(2011)
 
-* **Fast reactivity**: SVMs did usually finish in approx. 40min and submitted to the 1h queue, which is usually free. Now most jobs of full plates require approx. 80min (usually we have more objects / less undersegmentation / image more cells in a typical normal experiment). -> These jobs will fail in the 1h queue and then become resubmitted to the 8h queue. Thus a user is forced to wait until all jobs, which are queued in iBrain, finish (which can be days if multiple CellProfiler pipelines are running). 
+* **Fast reactivity**: In the past most SVMs did finish in approx. 40min. All SVMs were submitted to the 1h queue, which has not been used by CP jobs running via iBrain. Now most SVM jobs of full plates require approx. 80min (usually we have more objects / less undersegmentation / image more cells in a typical normal experiment). These jobs will fail in the 1h queue and then become resubmitted to the 8h queue. Thus a user is forced to wait until all jobs, which are queued in iBrain, finish (which can be days if multiple CellProfiler pipelines are running). 
 * **Correct submission statement on web-interface** (webpage of iBRAIN_BRUTUS lists same submission twice - while only one submission occurs)
 
 ## Requested Additional Functionality for iBRAIN_UZH
