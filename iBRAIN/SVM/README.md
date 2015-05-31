@@ -46,7 +46,7 @@ After the classifications have been saved for all cells of a plate , [PlotBinary
 
 
 ###PlotBinaryClassificationResults.m
-- Output of SVM_Classify_with_Probabilities_iBRAIN (/BATCH/Measurements_Image_ObjectCount.mat) 
+- Output of SVM_Classify_with_Probabilities_iBRAIN (/BATCH/Measurements_X.mat , where X is name of output of classify_gui)
 -  Classification into two (and not more) classes in classify_gui
 -  One class has been named not_X or non_X in classify_gui, where X is the name of the other class
 
