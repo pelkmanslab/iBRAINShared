@@ -54,7 +54,7 @@ After the classifications have been saved for all cells of a plate , [PlotBinary
 
 |||
 |---|---|
-|BATCH/SVMClassification_*.results | By command line output, provided by lsf|
+|BATCH/SVMClassification_*.results | Command line output; currently provided by lsf|
 |BATCH/Measurements_SVM_.*.mat | Single-cell classification. Created by SVM_Classify_with_Probabilities_iBrain.m |
 |POSTANALYSIS/Measurements_SVM_.*_overview.pdf | Overview image of per-well classifcation. Created by PlotBinaryClassificationResults.m	|
 |POSTANALYSIS/Measurements_SVM_.*_overview.csv | Overview table of per-well classifcation. Created by PlotBinaryClassificationResults.m |
