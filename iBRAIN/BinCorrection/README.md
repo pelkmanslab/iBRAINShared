@@ -40,9 +40,9 @@ BATCH/ Measurements_BIN_*.mat
 
 ## Dependencies
 
-- LoadStandardData.mat
-- getRawProbModelData2.mat
-- createMeasurement.mat
+- LoadStandardData.m
+- getRawProbModelData2.m
+- createMeasurement.m
 
 Requires `BIN_*.txt` settings file in project directory.
 
