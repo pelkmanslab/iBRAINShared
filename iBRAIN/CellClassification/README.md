@@ -88,12 +88,6 @@ secondary function dependencies of 2&3 (can be essential, are called by primary 
 
 # TODO
 
-current folder:
-- iBRAINShared\SVM
-
-suggestion for folder name:
-- iBRAINShared\CellClassificationServerSide
-
 current function name
 - SVM_Classify_with_Probabilities_iBRAIN.m
 
