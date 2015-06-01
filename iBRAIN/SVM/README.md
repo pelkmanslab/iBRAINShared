@@ -58,15 +58,3 @@ After the classifications have been saved for all cells of a plate , [PlotBinary
 |BATCH/Measurements_SVM_.*.mat | Single-cell classification. Created by SVM_Classify_with_Probabilities_iBrain.m |
 |POSTANALYSIS/Measurements_SVM_.*_overview.pdf | Overview image of per-well classifcation. Created by PlotBinaryClassificationResults.m	|
 |POSTANALYSIS/Measurements_SVM_.*_overview.csv | Overview table of per-well classifcation. Created by PlotBinaryClassificationResults.m |
-
-
-## Missing Functionality from iBRAIN(2011)
-
-* **Fast reactivity**: In the past most SVMs did finish in approx. 40min. All SVMs were submitted to the 1h queue, which has not been used by CP jobs running via iBrain. Now most SVM jobs of full plates require approx. 80min (usually we have more objects / less undersegmentation / image more cells in a typical normal experiment). These jobs will fail in the 1h queue and then become resubmitted to the 8h queue. Thus a user is forced to wait until all jobs, which are queued in iBrain, finish (which can be days if multiple CellProfiler pipelines are running). 
-* **Correct submission statement on web-interface** (webpage of iBRAIN_BRUTUS lists same submission twice - while only one submission occurs)
-
-## Requested Additional Functionality for iBRAIN_UZH
-**Improve interactivity and reduce human waiting time**
-* **Give single-cell classification jobs ("SVMs") higher priority than the bulk of the jobs** managed by iBrain (e.g. put on top of queue or better: separate high-priority queue). In practice this **would save hours/days of completely unnecessary human waiting time** (if iBrain is busy with other projects, e.g.: CellProfiler jobs)
-* **Parallelize classification**; e.g: request 8-core machines and replace the main for-loop in SVM_Classify_with_Probabilities_iBRAIN by a parfor-loop (after matlabpool open): This would reduce processing / human waiting time from 80min to 10min! (only 5-10min of trivial coding would be required)
-* Report/keep logs (.results) if there is an error during classification on iBrain
