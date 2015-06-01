@@ -58,3 +58,44 @@ After the classifications have been saved for all cells of a plate , [PlotBinary
 |BATCH/Measurements_SVM_.*.mat | Single-cell classification. Created by SVM_Classify_with_Probabilities_iBrain.m |
 |POSTANALYSIS/Measurements_SVM_.*_overview.pdf | Overview image of per-well classification. Created by PlotBinaryClassificationResults.m	|
 |POSTANALYSIS/Measurements_SVM_.*_overview.csv | Overview table of per-well classification. Created by PlotBinaryClassificationResults.m |
+
+## Dependency notes
+
+
+wrapper function
+1. do_svm_classification.sh (calls 2.)
+
+working function
+2. SVM_Classify_with_Probabilities_iBRAIN.m (calls 3.)
+3. PlotBinaryClassificationResults.m
+
+primary function dependencies for 2&3
+- CellClassificationPelkmans\Shared\SingleCellClassification (everything)
+- PelkmansLibrary\matlab\getlastdir.m
+- PelkmansLibrary\matlab\npc.m
+- PelkmansLibrary\matlab\check_image_well_position.m
+- PelkmansLibrary\matlab\gcf2pdf.m
+- PelkmansLibrary\matlab\writelists.m
+- PelkmansLibrary\matlab\LoadMeasurements.m
+- statistical pattern recognition toolbox (\PelkmansLibrary\matlab\stprtool\ )
+- statistical toolbox (optional package - provided by MathWorks / MATLAB)
+- PelkmansLibrary\matlab\ +os 
+
+secondary function dependencies of 2&3 (can be essential, are called by primary dependencies)
+- iBRAINShared\Unknown\findfileswithregexpi.m
+- iBRAINShared\Unknown\replaceDRIVEwithUNC.m
+
+
+# TODO
+
+current folder:
+- iBRAINShared\SVM
+
+suggestion for folder name:
+- iBRAINShared\CellClassificationServerSide
+
+current function name
+- SVM_Classify_with_Probabilities_iBRAIN.m
+
+suggestion for function name
+- apply_SVM_classification_on_plate
