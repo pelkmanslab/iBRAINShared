@@ -18,7 +18,7 @@ iBRAIN "create plate overview" does: 
  - creates BASICDATA.mat files in plate BATCH folder; 
  - BASICDATA contains mean results per well, as well as log2 and z-scored results for infection scoring and cell number, and gene information if provided; 
  - creates .csv file of BASICDATA in POSTANALYSIS directory;
-  - creates .pdf file of BASICDATA with visualisations for summarising out of focus images, infection index, cell number and plate effects.
+ - creates .pdf file of BASICDATA with visualisations for summarising out of focus images, infection index, cell number and plate effects.
 
 ## Completion FLAGs 
 
