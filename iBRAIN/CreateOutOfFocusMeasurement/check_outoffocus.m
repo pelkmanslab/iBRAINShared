@@ -1,8 +1,6 @@
 function check_outoffocus(strRootPath)
 
     if nargin == 0
-        strRootPath = 'Y:\Data\Users\Prisca\090203_Mz_Tf_EEA1\090203_Mz_Tf_EEA1_CP394-1ac\BATCH\';
-        strRootPath = sp('ethz_share4', 'Data/Users/Vicky/iBrain/RV/130625_DS1_HCT_batch1a/BATCH');
         %strRootPath = npc(strRootPath);
     end
     
