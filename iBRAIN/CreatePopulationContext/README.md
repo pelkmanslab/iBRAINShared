@@ -5,10 +5,8 @@
 |---|---|
 | Module name: | CreatePopulationContext |
 | Contributors: | Gabriele Gut Gabriele.Gut@uzh.ch, Berend Snijder <berend.snijder@imls.uzh.ch> |
-Entry point: 
-getLocalCellDensityPerWell_auto.m, Detect_BorderCells.m
-Additional major working functions:
-none
+| Entry point: |getLocalCellDensityPerWell_auto.m, Detect_BorderCells.m
+| Additional major working functions: | none |
 
 ## BRAIN_BRUTUS reference
 
