@@ -1,0 +1,32 @@
+# IllumCorr (iBRAIN module)
+
+|||
+|---|---|
+| Module name: | IllumCorr |
+| Contributors: | Yauhen Yakimovich <yauhen.yakimovich@uzh.ch>, Berend Snijder <berend.snijder@imls.uzh.ch> |
+| Entry point: | prepare_batch_measure_illcor_stats.m, batch_measure_illcor_stats.m |
+| Additional major working functions: | platenormalization.sh |
+
+
+## iBRAIN_BRUTUS reference 
+
+/iBRAIN/core/modules/do_illumination_correcton.sh
+
+Summary iBRAIN "illumination correction" does:
+- creates batches for illumination correction by calling prepare_batch_measure_illcor_stats;
+- measures illumination correction statistics by calling batch_measure_illcor_stats for every batch file, or for list of images given in a settings file;
+- stores illumination correction statistics in BATCH directory;
+- creates .pdf files in POSTANALYSIS directory with visualisations of mean and std statistics per pixel calculated from dataset.
+
+## Completion FLAGs
+./BATCH/illuminationcorrection.complete
+
+
+## Inputs
+
+- `batch_measure_illcor_stats()` consumes `BATCH/batch_illcor_channel001_zstack000.mat` file, prepared by `prepare_batch_measure_illcor_stats()`
+
+## Outputs
+
+- BATCH/Measurements_batch_illcor_channel001_zstack000.mat
+
