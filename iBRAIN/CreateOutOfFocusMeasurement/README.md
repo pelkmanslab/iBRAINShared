@@ -12,7 +12,7 @@ iBRAIN_BRUTUS/iBRAIN/core/modules/create_out_of_focus_measurement.sh
 
 ## Summary
 iBRAIN " CreateOutOfFocusMeasurement " does: 
-- Identifies images in data sets which are out of focus, this identification is based on the granularity measurement of an image. The identification is done one channel (e.g. blue), and can be used to exclude whole sites from your data set.  Importantly both channel name and the granularity threshold values are hard coded in to check_outoffocus.m. I strongly advice to rewrite this function more generally and user independent (e.g. cluster images based on the granularity and set generate an out of focus measurement independently from user input) before implementing it on the new IBrain version.
+- Identifies images in data sets which are out of focus, this identification is based on the granularity measurement of an image. The identification is done one channel (e.g. blue), and can be used to exclude whole sites from your data set.  Importantly both channel name and the granularity threshold values are hard coded in to check_outoffocus.m. 
 
 ## Completion FLAGs
 
@@ -29,3 +29,9 @@ Path to the BATCH folder of the analyzed project.
 
 ## Outputs
 - Measurements_Image_OutOfFocus.mat
+
+# Notes
+
+## TODO
+
+It has been strongly advised to rewrite this function more generally and user independent (e.g. cluster images based on the granularity and set generate an out of focus measurement independently from user input) before implementing it on the new IBrain version.
