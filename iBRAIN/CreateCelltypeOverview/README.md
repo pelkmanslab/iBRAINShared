@@ -37,3 +37,4 @@ Gather_CellTypeData_iBRAIN2('${BATCHDIR}');
 # TODO
 
 - Check again if TraditionalPostClusterInfectionScoring_with_SVM.m is a dependency.
+- Rename `Gather_CellTypeData_iBRAIN2()` into `Gather_CellTypeData()`
