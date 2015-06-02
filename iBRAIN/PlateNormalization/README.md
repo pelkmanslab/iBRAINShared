@@ -26,8 +26,11 @@ iBRAIN "PlateNormalization" does: 
 
 ## File Dependencies
 
--create_plate_normalization.sh calls platenormalization.sh, which then calls Measurements_mean_std_iBRAIN.m. -create_plate_normalization.sh has no clear dependencies, since bash code does not check for the present of any specific Measurement file. -However it does check whether MeasurementsMeanStd_ results is present in BATCH folder (Completion Flag) or whether jobs running Measurements_mean_std_iBRAIN.m are present on Brutus, and subsequently does not trigger platenormalization.sh. 
--Additionally there is a comment line in the bash code stating “IF ALL EXPECTED MEASUREMENTS ARE PRESENT SUBMIT MEASUREMENTS_MEAN_STD”. I interpret this comment, that platenormalization.sh will be called whenever there is a set of Measurement files present in the BATCH folder.-If this assumption of mine is true, we have to conclude, that whenever we run a new Measurement pipeline, one has to retrigger PlateNormalization (delete the Completion FLAG).
+- create_plate_normalization.sh calls platenormalization.sh, which then calls Measurements_mean_std_iBRAIN.m. 
+- create_plate_normalization.sh has no clear dependencies, since bash code does not check for the present of any specific Measurement file. 
+- However it does check whether MeasurementsMeanStd_ results is present in BATCH folder (Completion Flag) or whether jobs running Measurements_mean_std_iBRAIN.m are present on Brutus, and subsequently does not trigger platenormalization.sh. 
+- Additionally there is a comment line in the bash code stating “IF ALL EXPECTED MEASUREMENTS ARE PRESENT SUBMIT MEASUREMENTS_MEAN_STD”. I interpret this comment, that platenormalization.sh will be called whenever there is a set of Measurement files present in the BATCH folder.
+- If this assumption of mine is true, we have to conclude, that whenever we run a new Measurement pipeline, one has to retrigger PlateNormalization (delete the Completion FLAG).
  
 ## Inputs
 
