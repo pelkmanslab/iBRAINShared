@@ -5,13 +5,11 @@
 | Module name: | BinCorrection |
 | Contributors: | Prisca Liberali <prisca.liberali@uzh.ch>, Berend Snijder <berend.snijder@imls.uzh.ch> |
 | Entry point: | runBinCorrection.m |
-| Additional major working functions: |  |
+| Additional major working functions: | doBinCorrection.m |
 
 ## BRAIN_BRUTUS reference
 
 `/iBRAIN/core/modules/do_bin_correction.sh`
-
-
 
 ## Summary
 
@@ -21,22 +19,14 @@ iBRAIN "do bin correction" does:
 - creates .pdf files with correction overview in POSTANALYSIS folder of each plate in project directory.
 
 See the entry-point function for main documentation and the algorithm explanation.
-Input
-BIN_*.txt 
-e.g. text file as getRawProbModelData2
 
+## Input
 
-Output
+BIN_*.txt e.g. text file as getRawProbModelData2
+
+## Output
+
 BATCH/ Measurements_BIN_*.mat
-
-
-## Wrapper
-
-- runBinCorrection.m
-
-## Working function
-
-- doBinCorrection.m
 
 ## Dependencies
 
@@ -45,12 +35,3 @@ BATCH/ Measurements_BIN_*.mat
 - createMeasurement.m
 
 Requires `BIN_*.txt` settings file in project directory.
-
-## Completion FLAGs
-
-`./BATCH/BINClassification_*.results`
-
-## Code and function calls
-Calls matlab function
-
-`runBinCorrection('${BATCHDIR}','${BINSETTINGSFILE}','$(basename $BINOUTPUTFILE)');`
