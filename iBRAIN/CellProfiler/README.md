@@ -22,6 +22,10 @@
 - PreCluster_.mat settings file in plate folders override those in project folders;
 - report progress with progress bar (but NOT ACCURATE!).
 
+## Working functions
+
+- `check_missing_images_in_folder()` - is independently called prior to PreCluster step.
+
 Completion FLAGs
 ./iBRAIN_Stage_1.completed
 
@@ -32,3 +36,4 @@ Completion FLAGs
 ## Outputs
 
 **TODO!**
+
