@@ -18,7 +18,7 @@ Please follow the instructions in the [iBRAIN_UZH User Guide](https://github.com
 
 * [Core Module help](https://github.com/pelkmanslab/iBRAIN_BRUTUS/wiki/iBRAIN_BRUTUS-core-module-help). A subset of *core* modules
 
-## API
+# API
 
 * [Automatically generated API documentation](http://jenkins.pelkmanslab.org/job/iBRAINShared_Master/iBRAINShared_API_Documentation/) -  updated daily, primary reference material.
 
