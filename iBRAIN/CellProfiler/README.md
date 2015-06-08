@@ -29,8 +29,23 @@
 - `submitbatchjobs.sh` - tricky one, lies in stage_one.sh and helps stage_one.sh to coordinates CPCluster behaviour.
 - `SeparateMeasurementsFromHandles()`- is called in CPCluster during saving of the output
 
-Completion FLAGs
-./iBRAIN_Stage_1.completed
+####Progession FLAGs
+
+project/PreCluster.submitted, or project/PreCluster.resubmitted, to flag that PreCluster.m has been started
+
+project/SubmitBatchJobs.submitted, or project/SubmitBatchJobs.resubmitted to flag that CPCluster.m has been started
+
+project/DataFusion.submitted, or project/DataFusion.resubmitted to flag that RunDataFusion.m has been started
+
+project/DataFusionCheckAndCleanup.submitted, or project/DataFusionCheckAndCleanup.resubmitted to flag that RunDataFusion.m is checking the correctness of the fusion.
+
+If a step fails, the typical behaviour is to try once more, and output a .resubmitted flag, there is no more than a second trial.
+
+
+
+####Completion FLAGs
+
+project/iBRAIN_Stage_1.completed
 
 ## Inputs
 
