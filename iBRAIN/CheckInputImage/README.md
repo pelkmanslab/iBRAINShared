@@ -41,7 +41,7 @@ Renaming of NIKON images if NIKON directory present in project folder, this NIKO
 presence of the ./NIKON/CheckNikonImageSet.complete
 
 ## Working functions
-microscopetool.nikon.renameImages.mat
+microscopetool.nikon.renameImages.mat   -started in rename_nikon.sh
 
 ####Completion FLAGs
 
@@ -66,7 +66,17 @@ NIKON folder in project folder
 
 #####rename_nikon.sh
 
+NIKON folder in project folder containing *.stk files
+presence of the flag ./NIKON/CheckNikonImageSet.complete
 
 ## Outputs
+#####check_image_set.sh
+completion flags ./BATCH/checkimageset.complete & ./TIFF/CheckImageSet_*.complete
+A BATCH and POSTANALYSIS folder in the project folder
 
+#####check_image_set_nikon.sh
+completion flags ./NIKON/CheckNikonImageSet.complete
+
+#####rename_nikon.sh
+*.tif image files into /TIFF folder corresponding to the compressed *.stk files found in /NIKON folder
 
