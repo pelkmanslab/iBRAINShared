@@ -25,6 +25,7 @@
 ## Working functions
 
 - `check_missing_images_in_folder()` - is independently called prior to PreCluster step.
+- `SeparateMeasurementsFromHandles()`- is called in CPCluster during saving of the output
 
 Completion FLAGs
 ./iBRAIN_Stage_1.completed
@@ -32,8 +33,15 @@ Completion FLAGs
 ## Inputs
 
 PreCluster.m
+three inputs: 
+-the cellprofiler pipeline saved by the user as /project/PreCluster_*.mat
+-the input path to the image folder (/TIFF in iBRAIN_BRUTUS)
+-the output path (/BATCH)
 
 CPCluster.m
+two inputs:
+-the fist one is the batch data saved as /BATCH/Batch_data.mat
+-the second one is the actual cluster job /BATCH/BATCH_*.mat
 
 RundDataFusion.m
 
@@ -41,8 +49,10 @@ RundDataFusion.m
 ## Outputs
 
 PreCluster.m
+The CP pipeline is evaluated on the first image set, it is a test. If everything goes fine, CPCluster starts, if an error occurs, it is reported by PreCluster, and iBRAIN_BRUTUS stops. 
 
 CPCluster.m
+
 
 RundDataFusion.m
 
