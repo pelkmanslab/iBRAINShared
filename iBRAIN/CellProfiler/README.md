@@ -32,27 +32,31 @@ Completion FLAGs
 
 ## Inputs
 
-PreCluster.m
-three inputs: 
+####PreCluster.m
+
+-three inputs: 
 -the cellprofiler pipeline saved by the user as /project/PreCluster_*.mat
 -the input path to the image folder (/TIFF in iBRAIN_BRUTUS)
 -the output path (/BATCH)
 
-CPCluster.m
-two inputs:
+####CPCluster.m
+
+-two inputs:
 -the fist one is the batch data saved as /BATCH/Batch_data.mat
 -the second one is the actual cluster job /BATCH/BATCH_*.mat
 
-RundDataFusion.m
+####RundDataFusion.m
 
 
 ## Outputs
 
-PreCluster.m
+####PreCluster.m
+
 The CP pipeline is evaluated on the first image set, it is a test. If everything goes fine, CPCluster starts, if an error occurs, it is reported by PreCluster, and iBRAIN_BRUTUS stops. 
 
-CPCluster.m
+####CPCluster.m
 
+Save in the output folder (/BATCH usually) a *_OUT.mat that will need to be fused with the other jobs outputs.
 
-RundDataFusion.m
+####RundDataFusion.m
 
