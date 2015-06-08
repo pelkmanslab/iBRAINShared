@@ -12,7 +12,7 @@
 
  ./iBRAIN/core/modules/stage_one.sh
 
-## Summary iBRAIN "stage one" does:
+## Summary iBRAIN "stage one" and file dependencies:
 - runs CellProfilerPelkmans pipelines on batched images on cluster, as defined by PreCluster_.mat settings file in project folder;
 - performs BATCH clean-up;
 - performs data fusion of CellProfiler measurements and clean-up;
@@ -21,6 +21,7 @@
 - can incorporate personalised code for CellProfiler pipeline if present in LIB directory in project folder;
 - PreCluster_.mat settings file in plate folders override those in project folders;
 - report progress with progress bar (but NOT ACCURATE!).
+
 
 ## Working functions
 
@@ -35,21 +36,29 @@ Completion FLAGs
 
 ####PreCluster.m
 
--three inputs: 
--the cellprofiler pipeline saved by the user as /project/PreCluster_*.mat
--the input path to the image folder (/TIFF in iBRAIN_BRUTUS)
--the output path (/BATCH)
+-three inputs:
+
+1.The cellprofiler pipeline saved by the user as /project/PreCluster_*.mat
+
+2.The input path to the image folder (/TIFF in iBRAIN_BRUTUS)
+
+3.The output path (/BATCH)
 
 ####CPCluster.m
 
 -two inputs:
--the fist one is the batch data saved as /BATCH/Batch_data.mat
--the second one is the actual cluster job /BATCH/BATCH_*.mat
+
+1.The fist one is the batch data saved as /BATCH/Batch_data.mat
+
+2.The second one is the actual cluster job /BATCH/BATCH_*.mat
 
 ####RunDataFusion.m
+
 -two inputs:
--the first one is the path to the output file folder (/BATCH usually)
--the second one is optional, it is the name of the measurement you want to fuse the actual CPCluster *_OUT.mat files together, not used in general. If not given, RunDataFusion.m extract the name of the measurements from the output folder and fuses the *_OUT.mat files accordingly.
+
+1.The first one is the path to the output file folder (/BATCH usually)
+
+2.The second one is optional, it is the name of the measurement you want to fuse the actual CPCluster *_OUT.mat files together, not used in general. If not given, RunDataFusion.m extract the name of the measurements from the output folder and fuses the *_OUT.mat files accordingly.
 
 ## Outputs
 
@@ -64,3 +73,7 @@ Save in the output folder (/BATCH usually) a *_OUT.mat that will need to be fuse
 ####RundDataFusion.m
 
 Save in the output folder (/BATCH usually) a Measurement*.mat file that regroups all the *_OUT.mat files produced by CPCluster.mat
+
+##TODO
+
+When are used `checkmeasurementsfile.m` and `checkmeasurementsfile2.m` ?
