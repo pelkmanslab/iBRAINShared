@@ -34,8 +34,8 @@
 ## File dependencies
 
 ##### all functions
-Presence of TIFF folder in project folder
-Renaming of NIKON images if NIKON directory present in project folder, this NIKON folder must contain *.stk and *.nd files.
+Presence of /TIFF folder in project folder ideally containing .tiff files.
+Renaming of NIKON images if /NIKON directory present in project folder, this NIKON folder must contain *.stk and *.nd files.
 
 ##### rename_nikon.sh
 presence of the ./NIKON/CheckNikonImageSet.complete
@@ -66,7 +66,7 @@ NIKON folder in project folder
 
 #####rename_nikon.sh
 
-NIKON folder in project folder containing *.stk files
+NIKON folder in project folder containing *.stk files,
 presence of the flag ./NIKON/CheckNikonImageSet.complete
 
 ## Outputs
