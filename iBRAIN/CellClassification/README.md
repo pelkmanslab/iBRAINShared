@@ -1,4 +1,4 @@
-# SVM classification (iBRAIN module)
+# Cell classification (iBRAIN module)
 
 |||
 |---|---|
