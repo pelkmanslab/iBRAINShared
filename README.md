@@ -44,7 +44,7 @@ Note that [iBRAIN folder](https://github.com/pelkmanslab/iBRAINShared/tree/maste
 - SVM classification
  - *do_svm_classification* step is located in [iBRAIN/CellClassification](https://github.com/pelkmanslab/iBRAINShared/tree/master/iBRAIN/CellClassification)
 - post-analysis
- - *create_out_of_focus_measurement* step is located in [iBRAIN/CellClassification](https://github.com/pelkmanslab/iBRAINShared/tree/master/iBRAIN/CellClassification)
+ - *create_out_of_focus_measurement* step is located in [iBRAIN/CreateOutOfFocusMeasurement](https://github.com/pelkmanslab/iBRAINShared/tree/master/iBRAIN/CreateOutOfFocusMeasurement)
  - *create_plate_normalization* step is located in [iBRAIN/PlateNormalization](https://github.com/pelkmanslab/iBRAINShared/tree/master/iBRAIN/PlateNormalization)
  - *create_population_context_measurements* step is located in [iBRAIN/CreatePopulationContext](https://github.com/pelkmanslab/iBRAINShared/tree/master/iBRAIN/CreatePopulationContext)
  - *stitch_segmentation_per_well* step is located in [iBRAIN/SegmentationPerWell](https://github.com/pelkmanslab/iBRAINShared/tree/master/iBRAIN/SegmentationPerWell)
