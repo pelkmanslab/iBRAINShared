@@ -1,4 +1,4 @@
-function create_jpgs(strTiffPath, strOutputPath, strSearchString, ownMIPs)
+function create_jpgs_illumination_corrected(strTiffPath, strOutputPath, strSearchString, ownMIPs)
 
     if nargin < 4
         ownMIPs=true;
