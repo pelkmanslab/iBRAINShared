@@ -401,12 +401,13 @@ strBatchDir = strrep(strImageDir,'TIFF','BATCH');
 iChannel = check_image_channel(strImage);
 [matMeanImage, matStdImage, hasIlluminationCorrection] = getIlluminationReference(strBatchDir,iChannel,shallCacheCorrection);
 
-matMeanImage = shrinkFun(matMeanImage);
-matStdImage = shrinkFun(matStdImage);
 
 if hasIlluminationCorrection == false
     error('could not find illumination correction')
 else
+    matMeanImage = shrinkFun(matMeanImage);
+    matStdImage = shrinkFun(matStdImage);
+    
     Image = double(shrinkFun(imread(strImage)));
     isLog = 1;
     corr_image = IllumCorrect(Image,matMeanImage,matStdImage,isLog);    
