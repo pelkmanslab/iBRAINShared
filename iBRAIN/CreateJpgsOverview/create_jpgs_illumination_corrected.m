@@ -385,31 +385,31 @@ end
 
 function corr_image = imread_shrunken_illumination_corrected(strImage, intShrinkFactor)
 
- 
-shrinkFun = @(x) imresize(x, 1/intShrinkFactor, 'nearest');
+% resize for final output image: note avoid excess computation and thus 
+% speed up by resizing prior application of illumination correction
+shrinkFun = @(x) imresize(x, 1/intShrinkFactor, 'nearest'); 
 
-shallCacheCorrection = true; % always cache to prevent blocking transfer SoNaS to Brutus
+% always cache to prevent blocking transfer SoNaS to Brutus
+shallCacheCorrection = true; 
 
-% strImage = 'Z:\Data\Users\RNAFish\IndividualExperiments\150430_mycHprtRescanB\JoinedHprtMycRescan\TIFF\Q3_A01_T0001F109L01A03Z01C03.png';
-if nargin < 2
-    shallCacheCorrection = false;
-end
-
+% Get BATCH directory corresponding to current image
 strImageDir  = fileparts(strImage);
 strBatchDir = strrep(strImageDir,'TIFF','BATCH');
 
+% Get illumination correction 
 iChannel = check_image_channel(strImage);
 [matMeanImage, matStdImage, hasIlluminationCorrection] = getIlluminationReference(strBatchDir,iChannel,shallCacheCorrection);
 
-
-if hasIlluminationCorrection == false
+% Shrink image, and apply illumination corection
+if hasIlluminationCorrection == false % check if illumination correction is present
     error('could not find illumination correction')
 else
     matMeanImage = shrinkFun(matMeanImage);
     matStdImage = shrinkFun(matStdImage);
     
     Image = double(shrinkFun(imread(strImage)));
-    isLog = 1;
+    
+    isLog = 1; % has been default for years now
     corr_image = IllumCorrect(Image,matMeanImage,matStdImage,isLog);    
 end
 
