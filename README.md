@@ -32,13 +32,15 @@ Note that [iBRAIN folder](https://github.com/pelkmanslab/iBRAINShared/tree/maste
  - *check_image_set* step is bash code in [check_image_set.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/check_image_set.sh) of iBRAIN_BRUTUS
  - *check_image_set_nikon* step is bash/python code in [check_image_set_nikon.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/check_image_set_nikon.sh) of iBRAIN_BRUTUS
  - *rename_nikon* step is bash/python code in [rename_nikon.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/rename_nikon.sh) of iBRAIN_BRUTUS
+- create jpgs
+ - *create_jpgs* step is located in [iBRAIN/CreateJpgsOverview](https://github.com/pelkmanslab/iBRAINShared/tree/master/iBRAIN/CreateJpgsOverview)
 - illumination correction
  - *do_illumination_correction* step is located in [iBRAIN/IllumCorr](https://github.com/pelkmanslab/iBRAINShared/tree/master/iBRAIN/IllumCorr), became [+iBRAIN/+IllumCorr](https://github.com/pelkmanslab/iBRAIN_UZH/tree/master/iBRAIN/modules/matlab/+iBRAIN/+IllumCorr)
+- create illcor jpgs
+ - *create_illcor_jpgs* step is located in [iBRAIN/CreateIllcorJpgsOverview](https://github.com/pelkmanslab/iBRAINShared/tree/master/iBRAIN/CreateIllcorJpgsOverview)
 - convert tiff to png
  - *convert_tiff_to_png* step is bash code in [convert_tiff_to_png.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/convert_tiff_to_png.sh) of iBRAIN_BRUTUS
  - *create_mips* step is python/bash code in [create_mips.sh](https://github.com/pelkmanslab/iBRAIN_BRUTUS/blob/master/iBRAIN/core/modules/create_mips.sh) of iBRAIN_BRUTUS
-- create jpgs
- - *create_jpgs* step is located in [iBRAIN/CreateJpgsOverview](https://github.com/pelkmanslab/iBRAINShared/tree/master/iBRAIN/CreateJpgsOverview)
 - run CellProfiler PIPE
  - *stage_one* step is located in [iBRAIN/CellProfiler](https://github.com/pelkmanslab/iBRAINShared/tree/master/iBRAIN/CellProfiler)
 - SVM classification
