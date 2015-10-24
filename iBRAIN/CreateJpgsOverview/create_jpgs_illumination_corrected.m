@@ -189,7 +189,7 @@ function create_jpgs_illumination_corrected(strTiffPath, strOutputPath, strSearc
     matChannelIntensities = NaN(max(matChannelsPresent),2);
     
     % sample a test image outside the parfor loop
-    tempImage = imread(fullfile(strTiffPath,cellFileList{1}));
+    ReferenceImage = imread(fullfile(strTiffPath,cellFileList{1}));
     
     for iChannel = matChannelsPresent
         
@@ -209,12 +209,7 @@ function create_jpgs_illumination_corrected(strTiffPath, strOutputPath, strSearc
         % contains lower and upper quantile intensity per image
         matQuantiles= NaN(intNumOfSamplesPerChannel,2);
         
-%         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%         %%%% WE COULD ADD ILLUMINATION CORRECTION HERE %%%% 
-%         % for illumination correction
-%         matMeanImage = [];
-%         matStdevImage = [];
-%         %%%%
+
         
 % % %         fprintf('%s: \tprogress 0%%',mfilename)
         for i = 1:intNumOfSamplesPerChannel; 
@@ -226,13 +221,21 @@ function create_jpgs_illumination_corrected(strTiffPath, strOutputPath, strSearc
 % % %             end
             
             try
-                tempImage = imread(fullfile(strTiffPath,strImageName)); %#ok<PFTIN,PFTUS>
+                strImageForHeuristics = fullfile(strTiffPath,strImageName);
+                % [TS151024] only conceptual difference to original create_jpg: 
+                % shrinking of images. Otherwise it would be slow, when illumination
+                % correction is applied. During last years, a scaling 
+                % factor of 20 has been working very robustly without loss 
+                % of quality, in a similarscript/function, that obtains 
+                % parameters for spot detection, and also gets extrema
+                ShrinkFactorForHeuristics = 20;
+                ImageForHeuristics = imread_shrunken_illumination_corrected(strImageForHeuristics, ShrinkFactorForHeuristics);
             catch %#ok<CTCH>
                 warning('matlab:bsBla','%s:  failed to load image %s',mfilename,strImageName)
             end
 
             % get average lower and upper 5% quantiles per sampled image
-            matQuantiles(i,:) = quantile(single(tempImage(:)),matQuantileSettings)';
+            matQuantiles(i,:) = quantile(single(ImageForHeuristics(:)),matQuantileSettings)';
 
         end
         fprintf(' done\n')
@@ -247,12 +250,12 @@ function create_jpgs_illumination_corrected(strTiffPath, strOutputPath, strSearc
     %%% START MERGE AND STITCH AND JPG CONVERSION %%%
     
     % calculate shrink factor dynamically to approach target jpg dimensions
-    intShrinkFactor = floor(max((size(tempImage).*matStitchDimensions) ./ matTargetImageSize));
+    intShrinkFactor = floor(max((size(ReferenceImage).*matStitchDimensions) ./ matTargetImageSize));
     if intShrinkFactor < 2; intShrinkFactor = 2; end
     fprintf('%s: dynamically determined shrinkfactor to be %d.\n',mfilename,intShrinkFactor);
     
-    %matImageSize = round(size(tempImage)/intShrinkFactor);
-    matImageSize = size(imresize(tempImage,1/intShrinkFactor));
+    %matImageSize = round(size(ReferenceImage)/intShrinkFactor);
+    matImageSize = size(imresize(ReferenceImage,1/intShrinkFactor));
     
     if length(matChannelsPresent) == 4
         matChannelOrder = [3,2,1,0; ... % BLUE, GREEN, RED, nothing
@@ -407,7 +410,7 @@ else
     matMeanImage = shrinkFun(matMeanImage);
     matStdImage = shrinkFun(matStdImage);
     
-    Image = double(shrinkFun(imread(strImage)));
+    Image = double(shrinkFun(imread(strImage)));  % illumination correction has to be performed with double precision
     
     isLog = 1; % has been default for years now
     corr_image = IllumCorrect(Image,matMeanImage,matStdImage,isLog);    
