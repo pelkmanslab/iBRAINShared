@@ -21,10 +21,7 @@ function create_jpgs_illumination_corrected(strTiffPath, strOutputPath, strSearc
         
     %%%%%%%%%%%%%%%%
     %%% Settings %%%
-    
-    % how much the images shold be shrunk for JPGs
-    % intShrinkFactor = 1;
-    
+       
     % what are the target dimensions of the final jpg
     matTargetImageSize = [2000 3000];
     
@@ -75,22 +72,12 @@ function create_jpgs_illumination_corrected(strTiffPath, strOutputPath, strSearc
         disp(sprintf('%s:  creating %s',mfilename,strOutputPath));
         mkdir(strOutputPath)
     end
-
-%     % let's try to do it in parallel
-%     try
-%         matlabpool(3)
-%     end    
-    
+   
     
     % get list of files in tiff directory
     cellFileList = CPdir(strTiffPath);
     cellFileList = {cellFileList(~[cellFileList.isdir]).name};
     
-%     % temporary hack. only process certain columns at a time...
-%     [matRow, matColumn] = cellfun(@filterimagenamedata,cellFileList);
-%     matOkIX = matRow==2 & matColumn==10; % (6,4) or (4,10)
-%     cellFileList = cellFileList(matOkIX);
-   
     
     % only look at .png or .tif
     matNonImageIX = cellfun(@isempty,regexpi(cellFileList,strSearchString,'once'));
@@ -196,14 +183,10 @@ function create_jpgs_illumination_corrected(strTiffPath, strOutputPath, strSearc
         
 
         
-% % %         fprintf('%s: \tprogress 0%%',mfilename)
         for i = 1:intNumOfSamplesPerChannel; 
             strImageName = cellFileList{matRandomIndices(i)}; %#ok<PFBNS>
 
-% % %             % report progress in %
-% % %             if ~mod(i,floor(intNumOfSamplesPerChannel/10))
-% % %                 fprintf(' %d%%',round(100*(i/intNumOfSamplesPerChannel)))
-% % %             end
+
             
 strImageForHeuristics = fullfile(strTiffPath,strImageName);
         % [TS151024] only conceptual difference to original create_jpg:
@@ -215,7 +198,7 @@ strImageForHeuristics = fullfile(strTiffPath,strImageName);
         ShrinkFactorForHeuristics = 20;
         ImageForHeuristics = imread_shrunken_illumination_corrected(strImageForHeuristics, ShrinkFactorForHeuristics);
         
-                    % get average lower and upper 5% quantiles per sampled image
+                    % get lower and upper quantiles per sampled image
         matQuantiles(i,:) = quantile(single(ImageForHeuristics(:)),matQuantileSettings)';
 
         end
