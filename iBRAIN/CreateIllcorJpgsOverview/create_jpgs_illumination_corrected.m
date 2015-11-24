@@ -219,8 +219,12 @@ strImageForHeuristics = fullfile(strTiffPath,strImageName);
         end
         fprintf(' done\n')
         
-        % make medians of those quantiles the new lower and upper bounds
-        matChannelIntensities(iChannel,:) = [nanmin(matQuantiles(:,1)),nanmax(matQuantiles(:,2))];
+        % make upper and lower bounds
+        extremaQuantile = 0.01; % use mild outlier discarding to prevent that that dirt in one site impacts observed range of all images
+        lowerFun = @(x) quantile(x(:),extremaQuantile);
+        upperFun = @(x) quantile(x(:),1-extremaQuantile);
+        matChannelIntensities(iChannel,:) = [lowerFun(matQuantiles(:,1)),upperFun(matQuantiles(:,2))];
+        
     end
     
 
