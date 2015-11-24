@@ -1,6 +1,5 @@
 function create_jpgs_illumination_corrected(strTiffPath, strOutputPath, strSearchString, ownMIPs)
 
-ReferenceShrinkFactor = 4; % Unless the number of sites within a well are very small or huge, images should be downsampled by this factor (4 works great for 7x7 acquistions in a 384 well).
 
 if nargin < 4
     ownMIPs=true;
@@ -23,7 +22,7 @@ strOutputPath = npc(strOutputPath);
 %%% Settings %%%
 
 % what are the target dimensions of the final jpg
-matTargetImageSize = [2000 3000];
+matTargetImageSize = [3240 3840];
 
 % maximum number of images to sample for rescale settings
 intMaxNumImagesPerChannel = 500;
@@ -212,12 +211,8 @@ end
 
 % calculate shrink factor dynamically to approach target jpg dimensions
 intShrinkFactor = floor(max((size(ReferenceImage).*matStitchDimensions) ./ matTargetImageSize));
-if intShrinkFactor < 2;  % in case that there are few sites, make high resolution
-    intShrinkFactor = 2;
-elseif intShrinkFactor < 8 % if the number of sites in one dimension is not too big, use high resolution
-    intShrinkFactor = ReferenceShrinkFactor;
-else
-    intShrinkFactor = intShrinkFactor; %#ok<ASGSL> % downsample image, if there is a risk that high resolution would break MATLAB or computational job
+if intShrinkFactor < 1;  % in case that image would be smaller than intended output size, do not magnify
+    intShrinkFactor = 1;
 end
 fprintf('%s: dynamically determined shrinkfactor to be %d.\n',mfilename,intShrinkFactor);
 
