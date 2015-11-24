@@ -6,28 +6,11 @@ function create_jpgs_illumination_corrected(strTiffPath, strOutputPath, strSearc
 
     if nargin == 0
         
-%         strTiffPath = 'Y:\Data\Users\50K_final_reanalysis\YF_KY\070115_YF_50K_KY_P2_1_3_CP072-1ac\TIFF';
-%         strOutputPath = 'Y:\Data\Users\50K_final_reanalysis\YF_KY\070115_YF_50K_KY_P2_1_3_CP072-1ac\JPG2';
-       
-%         strTiffPath = 'Y:\Data\Users\50K_final_reanalysis\YF_KY\070115_YF_50K_KY_P3_1_1_CP073-1aa\TIFF';
-%         strOutputPath = 'Y:\Data\Users\50K_final_reanalysis\YF_KY\070115_YF_50K_KY_P3_1_1_CP073-1aa\JPG2';        
-
-
-%         strTiffPath = 'Y:\Data\Users\50K_final_reanalysis\Ad5_KY\061117_Ad5_50K_KY_3_1_CP073-1aa\TIFF';
-%         strOutputPath = 'Y:\Data\Users\50K_final_reanalysis\Ad5_KY\070115_YF_50K_KY_P3_1_1_CP073-1aa\JPG2';        
-%         % F03
-% 
-%         strTiffPath = 'Y:\Data\Users\50K_final_reanalysis\Ad5_KY\061210_Ad5_50K_Ky_2_1_CP072-1aa\TIFF';
-%         strOutputPath = 'Y:\Data\Users\50K_final_reanalysis\Ad5_KY\061210_Ad5_50K_Ky_2_1_CP072-1aa\JPG2';                
-%         % B10
-
-        %strTiffPath = npc('http://www.ibrain.ethz.ch/share-2/Data/Users/Gabriele/20120507_FixedOranoids/TIFF');
-        %strOutputPath = npc('http://www.ibrain.ethz.ch/share-2/Data/Users/Gabriele/20120507_FixedOranoids/JPG');
         strTiffPath = '/share/nas/ethz-share4/Data/Users/Yauhen/iBrainProjects/zstack/TIFF/';
-        strOutputPath = '/share/nas/ethz-share4/Data/Users/Yauhen/iBrainProjects/zstack/JPG2/';
+        strOutputPath = '/share/nas/ethz-share4/Data/Users/Yauhen/iBrainProjects/zstack/ILLCORJPG/';
         
     elseif nargin == 1 || isempty(strOutputPath)
-        strOutputPath = strrep(strTiffPath,'TIFF','JPG');
+        strOutputPath = strrep(strTiffPath,'TIFF','ILLCORJPG');
     end
 
     % change paths
