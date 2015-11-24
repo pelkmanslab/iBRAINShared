@@ -179,7 +179,7 @@ for iChannel = matChannelsPresent
         
     
     for i = 1:intNumOfSamplesPerChannel;
-        strImageName = cellFileList{matRandomIndices(i)}; %#ok<PFBNS>
+        strImageName = cellFileList{matRandomIndices(i)};
                 
         strImageForHeuristics = fullfile(strTiffPath,strImageName);
         % [TS151024] only conceptual difference to original create_jpg:
