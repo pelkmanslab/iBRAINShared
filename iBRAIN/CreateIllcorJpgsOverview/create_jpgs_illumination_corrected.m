@@ -140,13 +140,7 @@ end
 [foo,strMicroscopeType] = check_image_position(cellFileList{1});
 clear foo;
 
-% get image snake. special case if images come from Safia (thaminys).
-if ~isempty(strfind(strTiffPath,'thaminys'))
-    [matImageSnake,matStitchDimensions] = get_image_snake_safia(max(matPositionNumber), strMicroscopeType);
-else
-    [matImageSnake,matStitchDimensions] = get_image_snake(max(matPositionNumber), strMicroscopeType);
-end
-
+[matImageSnake,matStitchDimensions] = get_image_snake(max(matPositionNumber), strMicroscopeType);
 
 fprintf('%s:  microscope type "%s"\n',mfilename,strMicroscopeType);
 fprintf('%s:  %d images per well\n',mfilename,max(matPositionNumber));

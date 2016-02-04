@@ -208,7 +208,12 @@ function [matTotal, matInfected, matImagesPerWell, cellstrGenePerWell, matOligon
             if isempty(oligonumber)
                 matOligonumber(1,well) = 0;
             else
-                matOligonumber(1,well) = oligonumber;                
+                if isscalar(oligonumber)
+                    matOligonumber(1,well) = oligonumber;
+                else
+                    warning('ConvertHandlesTo384DG:oligonumber', 'Ignoring <oligonumber> which is not a scalar. Check your masterdata.mat file');
+                    matOligonumber(1,well) = 0;
+                end
             end
             
             matPlatenumber(1,well) = matNumericalPlateList(1,1);
